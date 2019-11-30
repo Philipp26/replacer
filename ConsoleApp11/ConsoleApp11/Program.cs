@@ -10,9 +10,10 @@ namespace ConsoleApp11
         static string[] tempReplacer(string [] fileContent) =>
             fileContent
                     .Select(x => x.Replace("with (nolock)".ToUpper(), ""))
-                    .Select(y => y.Replace("(nolock)".ToUpper(), ""))
-                    .Select(y => y.Replace("at (nolock)", ""))
                     .Select(x => x.Replace("with (nolock)", ""))
+                    .Select(y => y.Replace("at (nolock)".ToUpper(), ""))
+                    .Select(y => y.Replace("at (nolock)", ""))
+                    .Select(y => y.Replace("(nolock)".ToUpper(), ""))                    
                     .Select(y => y.Replace("(nolock)", ""))
                     .ToArray();
 
