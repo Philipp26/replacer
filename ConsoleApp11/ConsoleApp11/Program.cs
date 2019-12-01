@@ -26,7 +26,7 @@ namespace ConsoleApp11
             {
                 var fileContent = File.ReadAllLines(file.FullName, Encoding.UTF8);
                 fileContent = tempReplacer(fileContent);
-                File.WriteAllLines(file.FullName, fileContent);
+                File.WriteAllLines(file.FullName, fileContent, Encoding.UTF8);
             }
         }
     }
