@@ -24,9 +24,9 @@ namespace ConsoleApp11
 
             foreach (var file in files)
             {
-                var fileContent = File.ReadAllLines(file.FullName, Encoding.Default);
+                var fileContent = File.ReadAllLines(file.FullName, Encoding.GetEncoding(1251));
                 fileContent = tempReplacer(fileContent);
-                File.WriteAllLines(file.FullName, fileContent, Encoding.Default);
+                File.WriteAllLines(file.FullName, fileContent, Encoding.GetEncoding(1251));
             }
         }
     }
