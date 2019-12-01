@@ -11,8 +11,6 @@ namespace ConsoleApp11
             fileContent
                     .Select(x => x.Replace("with (nolock)".ToUpper(), ""))
                     .Select(x => x.Replace("with (nolock)", ""))
-                    .Select(y => y.Replace("at (nolock)".ToUpper(), ""))
-                    .Select(y => y.Replace("at (nolock)", ""))
                     .Select(y => y.Replace("(nolock)".ToUpper(), ""))                    
                     .Select(y => y.Replace("(nolock)", ""))
                     .ToArray();
@@ -20,17 +18,14 @@ namespace ConsoleApp11
         static void Main(string[] args)
         {
             DirectoryInfo dir = new DirectoryInfo(
-                Environment.CurrentDirectory
-                .Replace(@"\ConsoleApp11\ConsoleApp11\bin\Debug", ""));
+                Environment.CurrentDirectory);
 
             var files = dir.GetFiles("*.sql", SearchOption.AllDirectories);
 
             foreach (var file in files)
             {
                 var fileContent = File.ReadAllLines(file.FullName, Encoding.Default);
-
                 fileContent = tempReplacer(fileContent);
-
                 File.WriteAllLines(file.FullName, fileContent);
             }
         }
